@@ -2,12 +2,19 @@ package Abstract_Factory;
 
 import java.util.Scanner;
 
-// Abstract Product: Tiket Penerbangan
+/**
+ * Interface abstrak untuk Tiket Penerbangan.
+ */
 interface TiketPenerbangan {
+    /**
+     * Metode untuk memesan tiket penerbangan.
+     */
     void pesan();
 }
 
-// Concrete Products: Tiket Ekonomi
+/**
+ * Implementasi konkret untuk Tiket Ekonomi.
+ */
 class TiketEkonomi implements TiketPenerbangan {
     @Override
     public void pesan() {
@@ -15,7 +22,9 @@ class TiketEkonomi implements TiketPenerbangan {
     }
 }
 
-// Concrete Products: Tiket Bisnis
+/**
+ * Implementasi konkret untuk Tiket Bisnis.
+ */
 class TiketBisnis implements TiketPenerbangan {
     @Override
     public void pesan() {
@@ -23,12 +32,21 @@ class TiketBisnis implements TiketPenerbangan {
     }
 }
 
-// Abstract Product: Maskapai Penerbangan
+/**
+ * Interface abstrak untuk Maskapai Penerbangan.
+ */
 interface MaskapaiPenerbangan {
+    /**
+     * Metode untuk memesan tiket penerbangan.
+     *
+     * @return Objek TiketPenerbangan yang dipesan.
+     */
     TiketPenerbangan pesanTiket();
 }
 
-// Concrete Products: Maskapai Garuda Indonesia
+/**
+ * Implementasi konkret untuk Maskapai Garuda Indonesia.
+ */
 class GarudaIndonesia implements MaskapaiPenerbangan {
     @Override
     public TiketPenerbangan pesanTiket() {
@@ -36,7 +54,9 @@ class GarudaIndonesia implements MaskapaiPenerbangan {
     }
 }
 
-// Concrete Products: Maskapai Lion Air
+/**
+ * Implementasi konkret untuk Maskapai Lion Air.
+ */
 class LionAir implements MaskapaiPenerbangan {
     @Override
     public TiketPenerbangan pesanTiket() {
@@ -44,12 +64,21 @@ class LionAir implements MaskapaiPenerbangan {
     }
 }
 
-// Abstract Factory: Penerbangan Factory
+/**
+ * Abstract Factory: Penerbangan Factory.
+ */
 abstract class PenerbanganFactory {
+    /**
+     * Metode untuk membuat objek MaskapaiPenerbangan.
+     *
+     * @return Objek MaskapaiPenerbangan yang dibuat.
+     */
     abstract MaskapaiPenerbangan createMaskapai();
 }
 
-// Concrete Factory: Penerbangan Ekonomi Factory
+/**
+ * Concrete Factory: Penerbangan Ekonomi Factory.
+ */
 class PenerbanganEkonomiFactory extends PenerbanganFactory {
     @Override
     public MaskapaiPenerbangan createMaskapai() {
@@ -57,7 +86,9 @@ class PenerbanganEkonomiFactory extends PenerbanganFactory {
     }
 }
 
-// Concrete Factory: Penerbangan Bisnis Factory
+/**
+ * Concrete Factory: Penerbangan Bisnis Factory.
+ */
 class PenerbanganBisnisFactory extends PenerbanganFactory {
     @Override
     public MaskapaiPenerbangan createMaskapai() {
@@ -65,8 +96,15 @@ class PenerbanganBisnisFactory extends PenerbanganFactory {
     }
 }
 
-// Client Code
+/**
+ * Program utama untuk pemesanan tiket pesawat.
+ */
 public class PesawatApp {
+    /**
+     * Metode utama program.
+     *
+     * @param args Argumen baris perintah (tidak digunakan dalam contoh ini).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
