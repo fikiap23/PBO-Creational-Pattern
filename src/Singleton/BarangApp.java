@@ -10,7 +10,7 @@ import java.util.Scanner;
  *         UIN Sunan Gunung Djati
  * @since 5 Juli 2023
  */
-public class Application {
+public class BarangApp {
     private static Database database = Database.getInstance();
     private static Scanner scanner = new Scanner(System.in);
 
